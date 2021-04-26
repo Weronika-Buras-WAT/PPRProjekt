@@ -36,8 +36,8 @@ static xmlrpc_value * sample_add(
 //======================================================================
 int main( void ){
 
-	/* zmienne predefiniowane *****************************************/
-	int  port   = 12345;
+	/* zmienne predefi8niowane *****************************************/
+	int  port   = 12346;
 	//------------------------------------------------------------------
     struct xmlrpc_method_info3 const methodInfo = {
         /* .methodName     = */ "sample.read",
