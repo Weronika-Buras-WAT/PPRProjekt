@@ -2,6 +2,8 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Diagnostics;
+using System.ComponentModel;
 
 namespace socket
 {
@@ -11,8 +13,8 @@ namespace socket
         {
 			byte[] bytes = new Byte[1024];
 			string data = null;
-			IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 12346);
-			Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp );
+			IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Any, 12345);
+			Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
 			try {
 				listener.Bind(localEndPoint);
 				listener.Listen(10); 
@@ -25,7 +27,7 @@ namespace socket
 						data = Encoding.ASCII.GetString(bytes);
 						Console.WriteLine($"Received: {data}, sending it back.");
 						byte[] msg = Encoding.ASCII.GetBytes(data);
-						Console.WriteLine($"To ja proces3 w c# otrzymalem wiaodmosc i wysylam ja dalej!");
+						Console.WriteLine($"To ja proces3 w c# otrzymalem wiaodmosc i wysylam ja dalej! Oto wiadomosc: ");
 						Console.WriteLine(data);
 						handler.Send(msg);
 						handler.Shutdown(SocketShutdown.Both);
