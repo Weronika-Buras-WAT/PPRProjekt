@@ -12,7 +12,7 @@ class HelloWorldService(ServiceBase):
         print('To ja proces 2. Mam wiadomosc:' +msg )
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            server_address = ('localhost', 12345)
+            server_address = ('localhost', 12347)
             sock.connect(server_address)
             sock.sendall(msg.encode('utf-8')+"\0")         
             sock.close()

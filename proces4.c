@@ -23,11 +23,11 @@ static xmlrpc_value * sample_add(
 		printf( "error\n");
         return NULL;
 	}
-	if (msg[0] == ' ') msg++;
+	//if (msg[0] == ' ') msg++;
 	char hex[1024];
 	for(int i = 0 ,j =0 ;i < strlen(msg); ++i, j+=2)
 		sprintf(hex+j,"%02x",msg[i] & 0xff);
-	printf("Wiadomosc: %s \n",hex);
+	printf("To ja proces 4. Otrzymalem wiadomosc: %s \n",hex);
  
     /* Zwracamy wynik *************************************************/
     return xmlrpc_build_value(envP, "i", 1);
